@@ -1,8 +1,6 @@
 <h1>Angular ToDo</h1>
 
 <p><strong>My first angular project written from scratch.</strong> I'm working on finishing the rest of the functionalities, but I have the basic functionalities down. This was done in one sitting on a Sunday evening :)</p>
-<a href="#/todo" class="btn btn-primary">Go To App</a>
-
 
 <h2>Basic Functionalities</h2>
 

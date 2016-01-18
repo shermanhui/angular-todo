@@ -1,5 +1,5 @@
 // module
-var toDoApp = angular.module('toDoApp', ['ngRoute', 'ngResource']);
+var toDoApp = angular.module('toDoApp', ['ngRoute', 'ngResource', 'firebase']);
 
 // router
 toDoApp.config(function ($routeProvider){
@@ -22,25 +22,45 @@ toDoApp.config(function ($routeProvider){
 });
 
 // services
-toDoApp.service('addToDo', function(){
-	this.toDoItem = '';
-});
+// toDoApp.service('addToDo', function(){
+
+// 	this.toDoItem = '';
+// });
 
 // controllers
 toDoApp.controller('aboutController', ['$scope', function($scope){
 
 }]);
 
-toDoApp.controller('todoController', ['$scope', function($scope){
-	$scope.tasks = [];
+toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
+	var fireStorage = new Firebase('https://super-todos.firebaseio.com/');
+
+	$scope.tasks = $firebaseArray(fireStorage);
 
 	$scope.addToDo = function(){
-		$scope.tasks.push($scope.toDoItem);
+
+		//makes id for firebase to use
+		var timestamp = new Date().valueOf();
+
+		$scope.tasks.$add({
+			id: timestamp,
+			title: $scope.toDoItem,
+			status: false
+		});
+
 		$scope.toDoItem = '';
-		console.log($scope.tasks)
+
+	};
+
+	$scope.removeToDo = function(index){
+
+		$scope.tasks.$remove(index, 1);
+
 	};
 
 	$scope.totalTasks = function(){
+
 		return $scope.tasks.length;
+
 	};
 }]);

@@ -22,4 +22,4 @@
 </ol>
 
 <hr/>
-Made with ![high voltage][⚡] by Sherman Hui
+Made with ⚡ by Sherman Hui

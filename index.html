@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" ng-app="toDoApp">
     <head>
         <title>AngularJS ToDo List SPA</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -30,15 +30,15 @@
 				</div>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#/"><i class="fa fa-home"></i> About</a></li>
+                    <li><a href="#/todo"><i class="fa fa-home"></i> ToDos</a></li>
 				</ul>
 			</div>
 			</nav>
 		</header>
 
         <div class="container">
-
-
+            <div ng-view></div>
 		</div>
 
     </body>

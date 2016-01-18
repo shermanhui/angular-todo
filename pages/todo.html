@@ -1,9 +1,9 @@
-<h1 class="text-center">ToDo List</h1>
-<hr/>
-<div class="text-center">Items To Show: <a href="#/todo/5" ng-class="{ 'bg-primary' : todos === '5'}">5</a> | <a href="#/todo/10" ng-class="{ 'bg-primary' : todos === '10'}">10</a> | <a href="#/todo/15" ng-class="{ 'bg-primary' : todos === '15'}">15</a> | </div>
-<hr/>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
+    	<h1 class="text-center">ToDo List</h1>
+		<hr/>
+		<div class="text-center">Items To Show: <a href="#/todo/5" ng-class="{ 'bg-primary' : todos === '5'}">5</a> | <a href="#/todo/10" ng-class="{ 'bg-primary' : todos === '10'}">10</a> | <a href="#/todo/15" ng-class="{ 'bg-primary' : todos === '15'}">15</a> | </div>
+		<hr/>
         <form ng-submit="addToDo()" class="form-group">
     		<label for="toDoList">What do you need to do?</label>
     		<input ng-model="toDoItem" type="text" class="form-control" placeholder="Let's Do Things!" required>
@@ -22,6 +22,7 @@
   				{{ todo }}
   			</li>
   		</ul> -->
+  		<hr/>
   		<h4>You've got {{ totalTasks() }} tasks left!</h4>
     </div>
 </div>

@@ -16,6 +16,11 @@ toDoApp.config(function ($routeProvider){
 	})
 });
 
+// services
+toDoApp.service('addToDo', function(){
+	this.toDoItem = '';
+});
+
 // controllers
 toDoApp.controller('aboutController', ['$scope', function($scope){
 

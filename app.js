@@ -58,6 +58,10 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	};
 
+	$scope.updateStatus = function(index){
+		$scope.tasks[index].status = !$scope.tasks[index].status;
+	};
+
 	$scope.totalTasks = function(){
 
 		return $scope.tasks.length;

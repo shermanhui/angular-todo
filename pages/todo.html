@@ -9,8 +9,12 @@
     		<input ng-model="toDoItem" type="text" class="form-control" placeholder="Let's Do Things!" >
   		</form>
   		<ul id="list">
-  			<li ng-repeat="todo in tasks">{{ todo }}</li>
+  			<li ng-repeat="todo in tasks">
+  				<input type="checkbox" ng-model="todo.done"/>
+  				{{ todo }}
+  			</li>
   		</ul>
+  		<h4>You've got  {{ totalTasks() }} tasks left!</h4>
     </div>
 </div>
 

@@ -2,6 +2,10 @@
 
 <p><strong>My first angular project written from scratch.</strong> I'm working on finishing the rest of the functionalities, but I have the basic functionalities down. This was done in one sitting on a Sunday evening :)</p>
 
+<h2>How to run:</h2>
+
+<p>On Mac run: python -m simpleHTTPServe 8080 (project has to be run on local server for Angular's Routing to work</p>
+
 <h2>Basic Functionalities</h2>
 
 <ol>

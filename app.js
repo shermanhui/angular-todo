@@ -37,6 +37,8 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	$scope.tasks = $firebaseArray(fireStorage);
 
+	$scope.limit = 5; // number of items to show
+
 	$scope.addToDo = function(){
 
 		//makes id for firebase to use
@@ -59,8 +61,8 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 	};
 
 	$scope.updateStatus = function(index){
+		console.log(index);
 		$scope.tasks[index].status = !$scope.tasks[index].status;
-		console.log($scope.tasks[index]);
 		$scope.tasks.$save(index);
 	};
 
@@ -69,4 +71,8 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 		return $scope.tasks.length;
 
 	};
+
+	$scope.setLimit = function(limiter){
+		$scope.limit = (limiter <= 0) ? $scope.tasks.length : limiter;
+	}
 }]);

@@ -37,7 +37,7 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	$scope.tasks = $firebaseArray(fireStorage);
 
-	$scope.limit = 5; // number of items to show
+	$scope.limit = 10; // number of items to show
 
 	$scope.addToDo = function(){
 

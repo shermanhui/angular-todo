@@ -1,21 +1,37 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
     	<h1 class="text-center">ToDo List</h1>
+
 		<hr/>
+
 		<div class="text-center">Items To Show: <a href="#/todo/5" ng-class="{ 'bg-primary' : todos === '5'}" ng-click="setLimit(5)">5</a> | <a href="#/todo/10" ng-class="{ 'bg-primary' : todos === '10'}" ng-click="setLimit(10)">10</a> | <a href="#/todo/15" ng-class="{ 'bg-primary' : todos === '15'}" ng-click="setLimit(15)">15</a> | </div>
+
 		<hr/>
+
         <form ng-submit="addToDo()" class="form-group">
+
     		<label for="toDoList">What do you need to do?</label>
+
     		<input ng-model="toDoItem" type="text" class="form-control" placeholder="Let's Do Things!" required>
+
   		</form>
+
   		<div class="input-group" ng-model="todo" ng-repeat="todo in tasks | limitTo:limit">
+
           	<span class="form-control status-{{todo.status}}">{{todo.title}}</span>
+
   			<!-- <span type="text" class="form-control">{{todo.title}}</span> -->
+
       		<span class="input-group-btn">
+
       			<button class="btn btn-success" ng-click="updateStatus($index)" aria-label="Remove">&#10003</button>
+
     			<button class="btn btn-danger" ng-click="removeToDo($index)" aria-label="Remove">X</button>
+
   			</span>
+
     	</div>
+
 <!--   		<ul id="list">
   			<li ng-repeat="todo in tasks">
   				<input type="checkbox" ng-model="todo.done"/>
@@ -23,7 +39,8 @@
   			</li>
   		</ul> -->
   		<hr/>
-  		<h4>You've got {{ totalTasks() }} tasks left!</h4>
+
+  		<h5>You've got {{totalRemaining}} tasks left, and you've completed {{completedTasks}} tasks | Total Tasks: {{totalTasks}}</h5>
     </div>
 </div>
 

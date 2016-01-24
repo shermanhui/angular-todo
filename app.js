@@ -29,7 +29,7 @@ toDoApp.config(function ($routeProvider){
 
 // controllers
 toDoApp.controller('aboutController', ['$scope', function($scope){
-
+	// nothing here for now
 }]);
 
 toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
@@ -39,15 +39,50 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	$scope.limit = 10; // number of items to show
 
+	$scope.$watch('tasks', function(){
+
+		var total = 0;
+
+		var remaining = 0;
+
+		$scope.tasks.forEach(function(todo){
+
+			if (!todo || !todo.title){ // prevent breaking list if item is illegal
+
+				return;
+
+			}
+
+			total++;
+
+			if (todo.status == false){
+
+				remaining++;
+
+			};
+		});
+
+		$scope.totalTasks = total;
+
+		$scope.totalRemaining = remaining;
+
+		$scope.completedTasks = total - remaining;
+
+	}, true);
+
 	$scope.addToDo = function(){
 
 		//makes id for firebase to use
 		var timestamp = new Date().valueOf();
 
 		$scope.tasks.$add({
+
 			id: timestamp,
+
 			title: $scope.toDoItem,
+
 			status: false
+
 		});
 
 		$scope.toDoItem = '';
@@ -60,19 +95,17 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	};
 
-	$scope.updateStatus = function(index){
-		console.log(index);
+	$scope.updateStatus = function(index){ // change status from complete to active
+
 		$scope.tasks[index].status = !$scope.tasks[index].status;
+
 		$scope.tasks.$save(index);
-	};
-
-	$scope.totalTasks = function(){
-
-		return $scope.tasks.length;
 
 	};
 
 	$scope.setLimit = function(limiter){
+
 		$scope.limit = (limiter <= 0) ? $scope.tasks.length : limiter;
-	}
+
+	};
 }]);

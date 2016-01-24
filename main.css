@@ -2,4 +2,5 @@ span.form-control.status-true {
     text-decoration: line-through;
     color: green;
     outline-width: thick;
+    background-color: #dff0d8;
 }

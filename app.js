@@ -89,17 +89,17 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	};
 
-	$scope.removeToDo = function(index){ // remove selected todo
-
-		$scope.tasks.$remove(index, 1);
-
-	};
-
 	$scope.updateStatus = function(index){ // change status from complete to active
 
 		$scope.tasks[index].status = !$scope.tasks[index].status;
 
 		$scope.tasks.$save(index);
+
+	};
+
+	$scope.removeToDo = function(index){ // remove selected todo
+
+		$scope.tasks.$remove(index, 1);
 
 	};
 
@@ -114,7 +114,39 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 			}
 
 		});
-	}
+	};
+
+	// $scope.showAll = function(){
+
+	// 	$scope.tasks.forEach(function(todo){
+
+	// 		return todo.status = true;
+
+	// 	});
+	// };
+
+	// $scope.showCompleted = function(){
+
+	// 	$scope.tasks.forEach(function(todo){
+	// 		if (todo.status == true){
+	// 			return true
+	// 		} else {
+	// 			return false
+	// 		}
+	// 	});
+
+	// };
+
+	// $scope.showRemaining = function(){
+
+	// 	$scope.tasks.forEach(function(todo){
+	// 		if (todo.status == false){
+	// 			return true
+	// 		} else {
+	// 			return false
+	// 		}
+	// 	});
+	// };
 
 	$scope.setLimit = function(limiter){ // in progress, doesn't work well because of async issue
 

@@ -45,7 +45,7 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 		var remaining = 0;
 
-		$scope.tasks.forEach(function(todo){
+		$scope.tasks.forEach(function(todo){ // watch the number of todo tasks and return number of completed/remaining tasks
 
 			if (!todo || !todo.title){ // prevent breaking list if item is illegal
 
@@ -70,7 +70,7 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	}, true);
 
-	$scope.addToDo = function(){
+	$scope.addToDo = function(){ // add new todo item
 
 		//makes id for firebase to use
 		var timestamp = new Date().valueOf();
@@ -89,7 +89,7 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	};
 
-	$scope.removeToDo = function(index){
+	$scope.removeToDo = function(index){ // remove selected todo
 
 		$scope.tasks.$remove(index, 1);
 
@@ -103,7 +103,20 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 	};
 
-	$scope.setLimit = function(limiter){
+	$scope.removeCompleted = function(){ // uses removeToDo to remove all completed tasks through a forEach loop
+
+		$scope.tasks.forEach(function(todo){
+
+			if (todo.status == true){
+
+				$scope.removeToDo(todo);
+
+			}
+
+		});
+	}
+
+	$scope.setLimit = function(limiter){ // in progress, doesn't work well because of async issue
 
 		$scope.limit = (limiter <= 0) ? $scope.tasks.length : limiter;
 

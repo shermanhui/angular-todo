@@ -6,6 +6,8 @@
 
 		<div class="text-center">Items To Show: <a href="#/todo/5" ng-class="{ 'bg-primary' : todos === '5'}" ng-click="setLimit(5)">5</a> | <a href="#/todo/10" ng-class="{ 'bg-primary' : todos === '10'}" ng-click="setLimit(10)">10</a> | <a href="#/todo/15" ng-class="{ 'bg-primary' : todos === '15'}" ng-click="setLimit(15)">15</a> | </div>
 
+		<div class="text-center">Show: Completed | Remaining</div>
+
 		<hr/>
 
         <form ng-submit="addToDo()" class="form-group">
@@ -40,7 +42,7 @@
   		</ul> -->
   		<hr/>
 
-  		<h5>You've got {{totalRemaining}} tasks left, and you've completed {{completedTasks}} tasks | Total Tasks: {{totalTasks}}</h5>
+  		<h5>You've got {{totalRemaining}} tasks left, and you've completed {{completedTasks}} tasks | Total Tasks: {{totalTasks}} | <a href="" ng-click="removeCompleted()">Clear Completed</a></h5>
     </div>
 </div>
 

@@ -49,7 +49,7 @@
   		<hr/>
 
   		<h5>Remaining: {{totalRemaining}} | Completed: {{completedTasks}} | Total Tasks: {{totalTasks}}</h5>
-  		<button class="btn btn-danger" ng-class="{'disabled' : tasks.length == 0}"ng-click="removeCompleted()">Clear Completed</button>
+  		<button class="btn btn-danger" ng-class="{'disabled' : completedTasks == 0}" ng-click="removeCompleted()">Clear Completed</button>
 
     </div>
 </div>

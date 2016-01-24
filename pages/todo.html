@@ -6,7 +6,15 @@
 
 		<div class="text-center">Items To Show: <a href="#/todo/5" ng-class="{ 'bg-primary' : todos === '5'}" ng-click="setLimit(5)">5</a> | <a href="#/todo/10" ng-class="{ 'bg-primary' : todos === '10'}" ng-click="setLimit(10)">10</a> | <a href="#/todo/15" ng-class="{ 'bg-primary' : todos === '15'}" ng-click="setLimit(15)">15</a> | </div>
 
-		<div class="text-center">Show: Completed | Remaining</div>
+		&nbsp;
+
+		<div class="text-center">
+			<div class="btn-group" role="group">
+				<button class="btn btn-default">All</button>
+				<button class="btn btn-default">Completed</button>
+				<button class="btn btn-default">Remaining</button>
+			</div>
+		</div>
 
 		<hr/>
 
@@ -21,8 +29,6 @@
   		<div class="input-group" ng-model="todo" ng-repeat="todo in tasks | limitTo:limit">
 
           	<span class="form-control status-{{todo.status}}">{{todo.title}}</span>
-
-  			<!-- <span type="text" class="form-control">{{todo.title}}</span> -->
 
       		<span class="input-group-btn">
 
@@ -42,7 +48,9 @@
   		</ul> -->
   		<hr/>
 
-  		<h5>You've got {{totalRemaining}} tasks left, and you've completed {{completedTasks}} tasks | Total Tasks: {{totalTasks}} | <a href="" ng-click="removeCompleted()">Clear Completed</a></h5>
+  		<h5>Remaining: {{totalRemaining}} | Completed: {{completedTasks}} | Total Tasks: {{totalTasks}}</h5>
+  		<button class="btn btn-danger" ng-click="removeCompleted()">Clear Completed</button>
+
     </div>
 </div>
 

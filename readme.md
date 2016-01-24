@@ -21,7 +21,7 @@
 
 <ol>
 	<li>Edit items</li>
-	<li>~~Fix to do item counter~~</li>
+	~~<li>Fix to do item counter</li>~~
 	<li>Enable routing based on the number of items the user wants to see - in progress</li>
 	<li>Use directives</li>
 </ol>

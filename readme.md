@@ -14,14 +14,15 @@
 	<li>Mark items as completed</li>
 	<li>Remove items</li>
 	<li>Persistant storage with Firebase</li>
+	<li>List items are tracked upon completion - done on Jan 24</li>
 </ol>
 
 <h2>To dos for my to-do App</h2>
 
 <ol>
 	<li>Edit items</li>
-	<li>Fix to do item counter</li>
-	<li>Enable routing based on the number of items the user wants to see</li>
+	~~<li>Fix to do item counter</li>~~
+	<li>Enable routing based on the number of items the user wants to see - in progress</li>
 	<li>Use directives</li>
 </ol>
 

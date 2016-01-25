@@ -1,5 +1,5 @@
 // module
-var toDoApp = angular.module('toDoApp', ['ngRoute', 'ngResource', 'firebase']);
+var toDoApp = angular.module('toDoApp', ['ngRoute', 'ngResource', 'firebase', 'angularUtils.directives.dirPagination']);
 
 // router
 toDoApp.config(function ($routeProvider){
@@ -35,9 +35,13 @@ toDoApp.controller('aboutController', ['$scope', function($scope){
 toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
 	var fireStorage = new Firebase('https://super-todos.firebaseio.com/');
 
+	$scope.currentPage = 1;
+
+	$scope.pageSize = 5;
+
 	$scope.tasks = $firebaseArray(fireStorage);
 
-	$scope.limit = 10; // number of items to show
+	//$scope.limit = 10; // number of items to show
 
 	$scope.$watch('tasks', function(){
 

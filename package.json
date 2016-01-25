@@ -1,0 +1,28 @@
+{
+  "name": "angular-todo",
+  "version": "1.0.0",
+  "description": "practice with angular",
+  "main": "app.js",
+  "dependencies": {
+    "angular-utils-pagination": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shui91/angular-todo.git"
+  },
+  "keywords": [
+    "angular",
+    "todo",
+    "practice"
+  ],
+  "author": "sherman hui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shui91/angular-todo/issues"
+  },
+  "homepage": "https://github.com/shui91/angular-todo#readme"
+}

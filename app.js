@@ -21,12 +21,6 @@ toDoApp.config(function ($routeProvider){
 	});
 });
 
-// services
-// toDoApp.service('addToDo', function(){
-
-// 	this.toDoItem = '';
-// });
-
 // controllers
 toDoApp.controller('aboutController', ['$scope', function($scope){
 	// nothing here for now
@@ -35,13 +29,9 @@ toDoApp.controller('aboutController', ['$scope', function($scope){
 toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
 	var fireStorage = new Firebase('https://super-todos.firebaseio.com/');
 
-	$scope.currentPage = 1;
-
 	$scope.pageSize = 5;
 
 	$scope.tasks = $firebaseArray(fireStorage);
-
-	//$scope.limit = 10; // number of items to show
 
 	$scope.$watch('tasks', function(){
 
@@ -94,16 +84,21 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 	};
 
 	$scope.updateStatus = function(index){ // change status from complete to active
+		console.log($scope)
 
-		$scope.tasks[index].status = !$scope.tasks[index].status;
+		var itemIndex = index + ($scope.__default__currentPage - 1) * $scope.pageSize;
 
-		$scope.tasks.$save(index);
+		$scope.tasks[itemIndex].status = !$scope.tasks[itemIndex].status;
+
+		$scope.tasks.$save(itemIndex);
 
 	};
 
 	$scope.removeToDo = function(index){ // remove selected todo
 
-		$scope.tasks.$remove(index, 1);
+		var itemIndex = index + ($scope.__default__currentPage - 1) * $scope.pageSize;
+
+		$scope.tasks.$remove(itemIndex, 1);
 
 	};
 
@@ -119,38 +114,6 @@ toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scop
 
 		});
 	};
-
-	// $scope.showAll = function(){
-
-	// 	$scope.tasks.forEach(function(todo){
-
-	// 		return todo.status = true;
-
-	// 	});
-	// };
-
-	// $scope.showCompleted = function(){
-
-	// 	$scope.tasks.forEach(function(todo){
-	// 		if (todo.status == true){
-	// 			return true
-	// 		} else {
-	// 			return false
-	// 		}
-	// 	});
-
-	// };
-
-	// $scope.showRemaining = function(){
-
-	// 	$scope.tasks.forEach(function(todo){
-	// 		if (todo.status == false){
-	// 			return true
-	// 		} else {
-	// 			return false
-	// 		}
-	// 	});
-	// };
 
 	$scope.setLimit = function(limiter){ // in progress, doesn't work well because of async issue
 

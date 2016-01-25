@@ -26,13 +26,13 @@
 
   		</form>
 
-  		<div class="input-group" ng-model="todo" dir-paginate="todo in tasks | itemsPerPage: 8"> <!--ng-repeat="todo in tasks | limitTo:limit"-->
+  		<div class="input-group" ng-model="todo" dir-paginate="todo in tasks | itemsPerPage: pageSize"> <!--ng-repeat="todo in tasks | limitTo:limit"-->
 
           	<span class="form-control status-{{todo.status}}">{{todo.title}}</span>
 
       		<span class="input-group-btn">
 
-      			<button class="btn btn-success" ng-click="updateStatus($index)" aria-label="Remove">&#10003</button>
+      			<button class="btn btn-success" ng-click="updateStatus($index)" aria-label="Complete">&#10003</button>
 
     			<button class="btn btn-danger" ng-click="removeToDo($index)" aria-label="Remove">X</button>
 
@@ -40,7 +40,8 @@
 
     	</div>
 		<div class="text-center">
-			<dir-pagination-controls  boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="node_modules/angular-utils-pagination/dirPagination.tpl.html" auto-hide="false"></dir-pagination-controls>
+			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="customPagination.tpl.html" auto-hide="false"></dir-pagination-controls>
+
 		</div>
 <!--   		<ul id="list">
   			<li ng-repeat="todo in tasks">

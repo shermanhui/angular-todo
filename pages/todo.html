@@ -26,7 +26,7 @@
 
   		</form>
 
-  		<div class="input-group" ng-model="todo" ng-repeat="todo in tasks | limitTo:limit">
+  		<div class="input-group" ng-model="todo" dir-paginate="todo in tasks | itemsPerPage: 8"> <!--ng-repeat="todo in tasks | limitTo:limit"-->
 
           	<span class="form-control status-{{todo.status}}">{{todo.title}}</span>
 
@@ -39,7 +39,9 @@
   			</span>
 
     	</div>
-
+		<div class="text-center">
+			<dir-pagination-controls  boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="node_modules/angular-utils-pagination/dirPagination.tpl.html" auto-hide="false"></dir-pagination-controls>
+		</div>
 <!--   		<ul id="list">
   			<li ng-repeat="todo in tasks">
   				<input type="checkbox" ng-model="todo.done"/>
@@ -47,6 +49,8 @@
   			</li>
   		</ul> -->
   		<hr/>
+
+
 
   		<h5>Remaining: {{totalRemaining}} | Completed: {{completedTasks}} | Total Tasks: {{totalTasks}}</h5>
   		<button class="btn btn-danger" ng-class="{'disabled' : completedTasks == 0}" ng-click="removeCompleted()">Clear Completed</button>

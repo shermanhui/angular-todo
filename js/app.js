@@ -22,9 +22,9 @@ toDoApp.config(function ($routeProvider){
 });
 
 // controllers
-toDoApp.controller('aboutController', ['$scope', function($scope){
-	// nothing here for now
-}]);
+// toDoApp.controller('aboutController', ['$scope', function($scope){
+// 	// nothing here for now
+// }]);
 
 toDoApp.controller('todoController', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
 	var fireStorage = new Firebase('https://super-todos.firebaseio.com/');

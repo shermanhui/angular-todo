@@ -19,6 +19,9 @@ module.exports = function(config) {
       'node_modules/angular-resource/angular-resource.min.js',
       'node_modules/angular-route/angular-route.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/firebase/lib/firebase-web.js',
+      'node_modules/angularfire/dist/angularfire.min.js',
+      'node_modules/angular-utils-pagination/dirPagination.js',
       'js/app.js',
       'test/*.js'
     ],
